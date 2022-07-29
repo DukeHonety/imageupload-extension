@@ -3,7 +3,7 @@
 
   "name": "Premier Document Imaging",
   "version": "1.8",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "description": "Browser extension for use with Premier Document Imaging Solutions",
   "icons": {
     "128": "icon.png"
@@ -11,13 +11,12 @@
      
   "permissions": [
     "nativeMessaging",
-    "tabs"   
+    "tabs",
+    "scripting"
   ],
   "background": {
-    "persistent": false,
-    "scripts": [
-      "background.js"
-    ]
+    "service_worker": "background.js",
+    "type": "module"
   },
   "content_scripts": [
     {
@@ -31,8 +30,10 @@
     }
   ],
     
-  "web_accessible_resources": [
-     "scanAPI.js","*.pdf","*.jpg","*.jpg","*.txt" ,"icon.png"
-  ],
-  "homepage_url": "https://premierdis.com/imaging/"
+  "web_accessible_resources": [{
+    "resources" : ["scanAPI.js", "icon.png"],
+    "matches": [],
+    "extension_ids": []
+  }],
+  "homepage_url": "https://nyayakara.in/scan/scancheck_new.php"
 }
