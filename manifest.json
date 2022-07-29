@@ -1,0 +1,38 @@
+
+{
+
+  "name": "Premier Document Imaging",
+  "version": "1.8",
+  "manifest_version": 2,
+  "description": "Browser extension for use with Premier Document Imaging Solutions",
+  "icons": {
+    "128": "icon.png"
+  },
+     
+  "permissions": [
+    "nativeMessaging",
+    "tabs"   
+  ],
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "contentScript.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+    
+  "web_accessible_resources": [
+     "scanAPI.js","*.pdf","*.jpg","*.jpg","*.txt" ,"icon.png"
+  ],
+  "homepage_url": "https://premierdis.com/imaging/"
+}
